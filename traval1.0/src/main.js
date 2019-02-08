@@ -11,6 +11,8 @@ import "./assets/styles/reset.css";
 后续都是可以用这个文件的
 */
 import "./assets/styles/border.css";
+/* 引入字体文件 */
+import "./assets/styles/iconfont.css";
 
 Vue.config.productionTip = false;
 /* 这个fastClick的意思就是解决移动端点击300ms延时的问题，在git bash里边安装
