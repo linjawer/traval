@@ -3,6 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import fastClick from "fastclick";
+/* 1.引入轮播图插件，在github上边找插件 */
+import VueAwesomeSwiper from "vue-awesome-swiper";
+/* 1.1.引入轮播图的css插件 */
+import "swiper/dist/css/swiper.css";
 
 /* main.js是项目的入口文件，引入了reset.css是项目的初始化文件*/
 import "./assets/styles/reset.css";
@@ -19,6 +23,8 @@ Vue.config.productionTip = false;
 输入指令：npm install fastclick --save点击安装，安装之后必须要在上边引入
 */
 fastClick.attach(document.body);
+/* 1.2.轮播图插件定义 */
+Vue.use(VueAwesomeSwiper);
 
 new Vue({
   router,
