@@ -8,7 +8,7 @@
        输入城市/景点/游玩主题
    </div>
    <div class="header-right">
-       城市
+       {{this.city}}
        <span class="iconfont arrow-icon">&#xe64a;</span>
    </div>
 </div>
@@ -16,9 +16,12 @@
 
 <script>
 /* export defaul用于对外输出本模块（一个文件可以理解为一个模块）变量的接口 */
-// export default {
-// name:'HomeHeader'
-// }
+export default {
+name:'HomeHeader',
+props:{
+    city:String
+}
+}
 </script>
 
 <style lang="scss" scoped>

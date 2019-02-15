@@ -1,9 +1,9 @@
 <template>
 <!-- 为什么要加上div，是可以解决打开网页抖动的问题 -->
 <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
     <!-- slides -->
-    <swiper-slide v-for="item of swiperList" :key="item.id">
+    <swiper-slide v-for="item of list" :key="item.id">
      <img class="swiper-img" :src="item.imgUrl">
     </swiper-slide>
     <!-- Optional controls -->
@@ -19,6 +19,9 @@
 /* 组件导出 */
 export default {
     name:'HomeSwiper',
+    props:{
+        list:Array
+    },
     /* 在子组件上边定义的时候，data是一个函数 */
     /* 可以简化data(){} */
     data:function () {
@@ -29,13 +32,19 @@ export default {
                 loop:true
             },
             /* 因为vue是数据驱动的一个框架，页面显示什么完全可以由数组来决定 */
-            swiperList:[{
-               id:'0001',
-               imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20191/267be9a1ae19513d08785f6676cd6886.jpg_890x330_0d5c047c.jpg'
-            },{
-               id:'0002',
-               imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20192/03969572b09f9225382fe06a586cff51.jpg_890x330_68c510f6.jpg'
-            }]
+            // swiperList:[{
+            //    id:'0001',
+            //    imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20191/267be9a1ae19513d08785f6676cd6886.jpg_890x330_0d5c047c.jpg'
+            // },{
+            //    id:'0002',
+            //    imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20192/03969572b09f9225382fe06a586cff51.jpg_890x330_68c510f6.jpg'
+            // }]
+        }
+    },
+    computed:{
+        /* 解决轮播图在初始化小点在第四张的问题 */
+        showSwiper(){
+            return this.list.length
         }
     }
 }
@@ -55,7 +64,7 @@ export default {
      width: 100%;
      height: 0;
      /* 宽高比例自适应 */
-     padding-bottom: 37.1%;
+     padding-bottom: 32.1%;
      overflow: hidden;
     .swiper-img {
       width:100%;

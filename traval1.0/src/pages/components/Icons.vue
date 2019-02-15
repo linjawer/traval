@@ -2,9 +2,9 @@
   <div class="icons">
     <!-- 当图标有9个的时候，可以像轮播图一样的切换 -->
     <swiper>  
-      <swiper-slide v-for="(page,index) of pages" :key="index">   
+      <swiper-slide v-for="(page,index) of icon" :key="index">   
     <div class="icon" 
-         v-for='item of page'
+         v-for='item of icon'
          :key="item.id"
          >
       <div class="icon-img">
@@ -20,45 +20,48 @@
 import img from "../../assets/img/j1.png"
 export default {
   name: "HomeIcons",
+  props:{
+    icon:Array
+  },
   data: function() {
     return {
-        iconList:[{
-         id:'0001',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0002',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0003',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0004',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0005',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0006',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0007',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0008',
-         imgUrl:img,
-         desc:'景点门票'
-        },{
-         id:'0009',
-         imgUrl:img,
-         desc:'景点门票'
-        }]
+        // iconList:[{
+        //  id:'0001',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0002',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0003',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0004',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0005',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0006',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0007',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0008',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // },{
+        //  id:'0009',
+        //  imgUrl:img,
+        //  desc:'景点门票'
+        // }]
     };
   },
   computed:{
@@ -110,7 +113,7 @@ export default {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: -0.4rem;
       line-height: 0.44rem;
       height: 0.44rem;
       color: $darkTextColor;

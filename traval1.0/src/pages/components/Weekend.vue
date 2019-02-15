@@ -2,9 +2,9 @@
 <div>
     <div class="recommend-title">周末去哪儿</div>
     <ul>
-        <li class="item border-bottom" v-for="item of recommendList" :key='item.id'>
+        <li class="item border-bottom" v-for="item of week" :key='item.id'>
             <div class="item-img-wrappers">
-               <img class="item-img-wrapper" :src="item.imgurl">
+               <img class="item-img-wrapper" :src="item.imgUrl">
             </div>
             <div class="item-info">
                 <p class="item-title">{{item.title}}</p>
@@ -20,26 +20,29 @@
 import img from "../../assets/img/123.jpg"
 export default {
     name:'HomeWeekend',
+    props:{
+      week:Array
+    },
     data (){
         return {
-           recommendList:[{
-               id:'0001',
-               imgurl:img,
-               title:'大连圣亚海洋世界',
-               desc:'浪漫广州首站,浪漫的海洋主题公园'
-           },
-           {
-               id:'0002',
-               imgurl:img,
-               title:'大连圣亚海洋世界',
-               desc:'浪漫广州首站,浪漫的海洋主题公园'
-           },
-           {
-               id:'0003',
-               imgurl:img,
-               title:'大连圣亚海洋世界',
-               desc:'浪漫广州首站,浪漫的海洋主题公园'
-           }]    
+        //    recommendList:[{
+        //        id:'0001',
+        //        imgurl:img,
+        //        title:'大连圣亚海洋世界',
+        //        desc:'浪漫广州首站,浪漫的海洋主题公园'
+        //    },
+        //    {
+        //        id:'0002',
+        //        imgurl:img,
+        //        title:'大连圣亚海洋世界',
+        //        desc:'浪漫广州首站,浪漫的海洋主题公园'
+        //    },
+        //    {
+        //        id:'0003',
+        //        imgurl:img,
+        //        title:'大连圣亚海洋世界',
+        //        desc:'浪漫广州首站,浪漫的海洋主题公园'
+        //    }]    
         }
     }
 }
