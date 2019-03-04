@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import home from "@/pages/home/home";
+import City from "@/pages/city/City";
 Vue.use(Router);
-
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
@@ -21,6 +21,11 @@ export default new Router({
       component: function() {
         return import(/* webpackChunkName: "about" */ "./views/About.vue");
       }
+    },
+    {
+      path:'/city',
+      name:'City',
+      component:City
     }
   ]
 });
