@@ -18,7 +18,7 @@ export default {
 .list{
     // 这里的定位是让A条到右边
     position: absolute;
-    top: 1.58rem;
+    top: 1.43rem;
     right:0;
     bottom:0;
     width: .4rem;
