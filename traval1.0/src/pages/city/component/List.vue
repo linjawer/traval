@@ -19,7 +19,11 @@
             </div>
           </div>
         </div>
-        <div class="area" v-for='(item,key) of cities' :key='key'>
+        <div class="area"
+         v-for='(item,key) of cities' 
+         :key='key'
+         :ref='key'
+         >
           <div class="title border-topbottom">{{key}}</div>
             <div class="item-list">
             <div class="item border-bottom"
@@ -38,10 +42,22 @@ export default {
   name: "CityList",
   props:{
       hot:Array,
-      cities:Object
+      cities:Object,
+      letter:String
   },
   mounted(){
       this.scroll=new BScroll(this.$refs.wrapper)
+  },
+  // 监听器，监听letter的变化,一旦letter变化的时候就跟着变化
+  watch:{
+    letter(){
+         console.log(this.letter);
+         if(this.letter){
+           const element=this.$refs[this.letter][0]
+          //滚动里边有这个方法  
+          this.scroll.scrollToElement(element)
+         }
+    }
   }
 };
 </script>
