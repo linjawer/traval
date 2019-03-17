@@ -1,7 +1,9 @@
 <template>
    <div>
         <city-header></city-header>
-        <city-search></city-search>
+        <city-search
+           :cities='cities'
+        ></city-search>
         <!-- 这里可以看做事父元素获取的数据，然后要这个数据传递给到了子组件 -->
         <city-list 
            :cities='cities' 

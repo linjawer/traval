@@ -51,7 +51,6 @@ export default {
   // 监听器，监听letter的变化,一旦letter变化的时候就跟着变化
   watch:{
     letter(){
-         console.log(this.letter);
          if(this.letter){
            const element=this.$refs[this.letter][0]
           //滚动里边有这个方法  
