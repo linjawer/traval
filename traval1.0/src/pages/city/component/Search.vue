@@ -1,14 +1,21 @@
 <template>
  <div>
        <div class="search">
-           <input v-model='keyword' class="search-input" type="text" placeholder="输入城市名或者拼音">
+           <input v-model='keyword' 
+                  class="search-input" 
+                  type="text" 
+                  placeholder="输入城市名或者拼音">
        </div>
           <div class='search-content' 
                ref='search'
                v-show='keyword'
                >
                <ul>
-                   <li class='yansji'  v-for='(item,index) in list' :key='index'>
+                   <li class='yansji' 
+                       v-for='(item,index) in list' 
+                       :key='index'
+                        @click="handleCityClick(item.name)"
+                       >
                         {{item.name}}
                    </li>
                    <li class='search-content nomath' v-show='hansNoDate'>
@@ -71,6 +78,13 @@ export default {
         hansNoDate(){
             return !this.list.length
         }
+   },
+   methods:{
+         handleCityClick(city){
+      //点击的时候要派发一个city过去actions,需要用到的方法是dispatch
+      this.$store.commit('changeCity',city)
+      this.$router.push('/')
+     }
    },
 //这里要实现的功能就是输入查找的的时候，页面是无法滚动的，所以要借助mounted要实现页面的滚动
     mounted(){

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store/index";
 import fastClick from "fastclick";
 /* 1.引入轮播图插件，在github上边找插件 */
 import VueAwesomeSwiper from "vue-awesome-swiper";

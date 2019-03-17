@@ -2,7 +2,9 @@
 <!-- 模板文件 -->
 <div>
    <!-- 下边定义的是大写，在这里写的是小写的，他会自动转换 -->
-   <home-header :city="city"></home-header>
+   <!-- <home-header :city="city"></home-header> -->
+   <!-- ****用vuex做的改变，没使用vuex的是上边的数据 -->
+   <home-header></home-header>
    <home-swiper :list='swiperList'></home-swiper>
    <home-icons :icon='iconList'></home-icons>
    <home-recommend :recom='recommendList'></home-recommend>
@@ -37,7 +39,8 @@ export default {
  },
  data(){
      return{
-         city:'',
+        //  ****使用vuex的数据，city的数据是去掉的
+        //  city:'',
          swiperList:[],
          iconList:[],
          recommendList:[],
@@ -60,7 +63,7 @@ export default {
           res=res.data;
           if(res.ret&&res.data){
               const data=res.data;
-              this.city=data.hotCities[0].name;
+            //   this.city=data.hotCities[0].name;
           }
       },
       getHomeInde(res){

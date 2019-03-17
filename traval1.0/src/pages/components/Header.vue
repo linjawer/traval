@@ -9,7 +9,8 @@
    </div>
  <router-link to='/city'>
        <div class="header-right">
-           {{this.city}}
+           <!-- 这里的$store指的就是index.js里边的store -->
+           {{ this.$store.state.city }}
            <span class="iconfont arrow-icon">&#xe64a;</span>
        </div>
  </router-link>
@@ -20,9 +21,9 @@
 /* export defaul用于对外输出本模块（一个文件可以理解为一个模块）变量的接口 */
 export default {
 name:'HomeHeader',
-props:{
-    city:String
-}
+// props:{
+//     city:String
+// }
 }
 </script>
 

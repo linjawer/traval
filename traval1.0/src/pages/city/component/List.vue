@@ -6,7 +6,7 @@
           <div class="title border-topbottom">当前城市</div>
           <div class="button-list">
             <div class="button-wrapper">
-              <div class="button">北京</div>
+              <div class="button">{{this.$store.state.city}}</div>
             </div>
           </div>
         </div>
@@ -14,7 +14,12 @@
           <!-- 注意：其中的border-topbottom是上下都加上一个线条 -->
           <div class="title border-topbottom">热门城市</div>
           <div class="button-list">
-            <div class="button-wrapper" v-for='item of hot' :key='item.id'>
+            <!-- 这里渲染的是热门城市 -->
+            <div class="button-wrapper" 
+                 v-for='item of hot' 
+                 :key='item.id'
+                 @click="handleCityClick(item.name)"
+                 >
               <div class="button">{{item.name}}</div>
             </div>
           </div>
@@ -29,6 +34,7 @@
             <div class="item border-bottom"
                    v-for='innerItem of item'
                    :key='innerItem.id'
+                   @click="handleCityClick(innerItem.name)"
             >{{innerItem .name}}</div>
           </div>
         </div>
@@ -47,6 +53,13 @@ export default {
   },
   mounted(){
       this.scroll=new BScroll(this.$refs.wrapper)
+  },
+  methods:{
+     handleCityClick(city){
+      //点击的时候要派发一个city过去actions,需要用到的方法是dispatch
+      this.$store.commit('changeCity',city)
+         this.$router.push('/')
+     }
   },
   // 监听器，监听letter的变化,一旦letter变化的时候就跟着变化
   watch:{
