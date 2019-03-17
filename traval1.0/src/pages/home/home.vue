@@ -23,6 +23,9 @@ import HomeRecommend from '../components/Recommend'
 import HomeWeekend from '../components/Weekend'
 /* 引入ajax请求,axios */
 import axios from 'axios'
+
+// 引入vuex
+import { mapState } from 'vuex'
 export default {
  name:'home',
  /* home.vue是首页的大组件*/
@@ -41,6 +44,7 @@ export default {
      return{
         //  ****使用vuex的数据，city的数据是去掉的
         //  city:'',
+         lastCity:"",
          swiperList:[],
          iconList:[],
          recommendList:[],
@@ -51,7 +55,7 @@ export default {
      /* 通过这个方法去请求ajax的数据,方法是定义在methods里边的 */
      getHomeInfo(){
          /* .then()异步执行,请求回来的函数，就是不用去等数据，直接执行 */
-         axios.get('/mock/city.json')
+         axios.get('/mock/city.json?city=' + this.city)
            .then(this.getHomeInfoSucc)
       },
       getHomeIndex(){
@@ -78,10 +82,20 @@ export default {
           }  
       }
  },
+    computed:{
+        ...mapState(['city'])
+      },
  mounted(){
     /* 这个生命周期函数的意思就是模板渲染之后调用 */
+    this.lastCity=this.city
     this.getHomeInfo() 
     this.getHomeIndex()
+ },
+ activated(){
+  if(this.lastCity !== this.city){
+     this.lastCity=this.city
+     this.getHomeInfo() 
+  }
  }
 }
 </script>

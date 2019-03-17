@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import BScroll from 'better-scroll'
 export default {
   name: "CityList",
@@ -57,9 +58,12 @@ export default {
   methods:{
      handleCityClick(city){
       //点击的时候要派发一个city过去actions,需要用到的方法是dispatch
-      this.$store.commit('changeCity',city)
+      // this.$store.commit('changeCity',city)
+         this.changeCity(city)
          this.$router.push('/')
-     }
+     },
+     ...mapMutations(['changeCity'])
+
   },
   // 监听器，监听letter的变化,一旦letter变化的时候就跟着变化
   watch:{

@@ -10,7 +10,8 @@
  <router-link to='/city'>
        <div class="header-right">
            <!-- 这里的$store指的就是index.js里边的store -->
-           {{ this.$store.state.city }}
+           <!-- {{ this.$store.state.city }} -->
+           {{this.city}}
            <span class="iconfont arrow-icon">&#xe64a;</span>
        </div>
  </router-link>
@@ -18,12 +19,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 /* export defaul用于对外输出本模块（一个文件可以理解为一个模块）变量的接口 */
 export default {
 name:'HomeHeader',
-// props:{
-//     city:String
-// }
+// 这里是vuex的高级用法
+computed:{
+    ...mapState(['city'])
+}
 }
 </script>
 
@@ -58,7 +61,8 @@ name:'HomeHeader',
          padding-left: .2rem;
      }
      .header-right{
-         width: 1.24rem;
+         min-width: 1.04rem;
+         padding: 0 .1rem;
          text-align: center;
          color:#fff;
          .arrow-icon{
