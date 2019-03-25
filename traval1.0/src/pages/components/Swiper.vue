@@ -29,7 +29,7 @@ export default {
             /* 初始化，让他是一个空对象，什么也没有 */
             swiperOption:{
                 pagination:'.swiper-pagination',
-                loop:true
+                loop:true,
             },
             /* 因为vue是数据驱动的一个框架，页面显示什么完全可以由数组来决定 */
             // swiperList:[{
